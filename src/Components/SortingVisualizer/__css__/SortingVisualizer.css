@@ -1,0 +1,9 @@
+.bars{
+    width:3px;
+    background-color:coral;
+    display: inline-block;
+    margin: 0 3px;
+}
+.container{
+    margin: 50px 20px;
+}
