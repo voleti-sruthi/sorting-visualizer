@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './__css__/SortingVisualizer.css'
 import MergeSort from '../SortingAlgorithms/MergeSort';
+import BubbleSort from '../SortingAlgorithms/BubbleSort';
 
 function SortingVisualizer() {
     const [numArray,setNumArray] = useState([]);
@@ -12,14 +13,22 @@ function SortingVisualizer() {
             console.log(randNum);
             temparray.push(randNum);
         }
-        console.log(temparray)
+        // console.log(temparray)
         setNumArray(temparray);
     }
 useEffect(()=>{
     generateArray(arraySize);
 },[]);
-function mergeSort(){
+const mergeSort = ()=>{
     setNumArray(MergeSort(numArray));
+}
+const bubbleSort = ()=>{
+    // const sortedArray = (BubbleSort(numArray));
+    // console.log(sortedArray);
+    // setNumArray(sortedArray);
+    console.log(BubbleSort(numArray));
+    setNumArray(BubbleSort(numArray));
+    console.log(numArray);
 }
   return (
     <div>
@@ -39,7 +48,8 @@ function mergeSort(){
             })}
         </div>
         <button onClick={()=>generateArray(arraySize)}>reset</button>
-        <button onClick={mergeSort}>MERGE SORT</button>
+        <button onClick={()=>mergeSort()}>MERGE SORT</button>
+        <button onClick={()=>bubbleSort()}>BUBBLE SORT</button>
     </div>
   )
 }
